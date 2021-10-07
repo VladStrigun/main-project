@@ -4,8 +4,14 @@
       <div>My personal costs</div>
     </header>
     <main>
-      <PaymentsDisplay :items="paymentsList" />
-      <AddPaymentForm @addNewPayment="addNewPayment" />
+      <div>
+        <button @click="formShow = !formShow" id="form">Add New Cost +</button>
+
+        <div>
+          <AddPaymentForm @addNewPayment="addNewPayment" v-show="formShow" />
+        </div>
+      </div>
+      <div><PaymentsDisplay :items="paymentsList" /></div>
     </main>
   </div>
 </template>
@@ -21,6 +27,7 @@ export default {
   },
   data() {
     return {
+      formShow: false,
       paymentsList: [],
     };
   },

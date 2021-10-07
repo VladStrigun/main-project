@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ items }}
+    <div v-for="(item, idx) in items" :key="idx">{{ idx }}{{ item }}</div>
   </div>
 </template>
  
@@ -10,7 +10,15 @@
 
 <script>
 export default {
-  props: ["items"],
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  data() {
+    return {};
+  },
 };
 </script>
 
